@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spotify - Dados do Usuário</title>
+</head>
+<body>
+
+<% if @user_name%>
+  <h1>Obrigado por linkar com seu Spotify, <%= @user_name %></h1>
+  <h2>Estamos coletando algumas informações suas:</h2>
+  <ul>
+    <li><h3>Nome da sua conta: <b>"<%= @user_name %>"</b>.</h3></li>
+    <li><h3>Tipo de produto: <b>"<%= @product %>"</b>.</h3></li>
+    <li><h3>Músicas que você escuta: <b>"<%= @current_playing.dig('item', 'name') %>"</b>.</h3></li>
+    <li><h3>Condições do tempo atualmente: <b>"<%= @weather %>"</b>.</h3></li>
+    <li><h3>Em qual tipo de dispositivo você esta escutando a música: <b>"<%= @current_playing.dig('device', 'type') %>"</b>.</h3></li>
+
+  </ul>
+
+<% else %>
+  <h1>Faça o login com o Spotify para acessar essa página</h1>
+
+  <h2>Iremos coletar seus dados para treinar uma Inteligência Artificial para recomendar novas músicas para você!</h2>
+  <h2>Coletaremos as seguintes informações:</h2>
+  <ul>
+    <li><h3>Nome da sua conta</h3></li>
+    <li><h3>Tipo de produto</h3></li>
+    <li><h3>Músicas que você escuta</h3></li>
+    <li><h3>Condições do tempo atualmente</h3></li>
+    <li><h3>Em qual tipo de dispositivo você esta escutando a música</h3></li>
+  </ul>
+
+  <%= link_to spotify_api_path, "Clique para fazer login com o Spotify", class: "btn- btn-primary" %>
+<% end %>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<% content_for :title, "Giras" %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<div class="container">
+<!--  <div class="row justify-content-start">-->
+<!--    <div class="col text-center">-->
+<!--      <h1>Próximas Giras:</h1>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div id="giras">-->
+    <%# @giras.sort_by { |gira| gira.event_date }.group_by { |gira| gira.month_name }.each_with_index do |(mes, giras), index| %>
+<!--      <p class="d-inline-flex gap-1">-->
+<!--        <a data-bs-toggle="collapse" href="#collapse<%#= index %>" role="button" aria-expanded="false" aria-controls="collapse<%#= index %>" class="collapsed">-->
+<!--          <h2 class="text-left mt-5"><%#= mes %> <i class="bi bi-chevron-down"></i></h2>-->
+<!--        </a>-->
+<!--      </p>-->
+
+<!--      <div class="collapse multi-collapse" id="collapse<%#= index %>">
+<!--        <div class="row">-->
+<!--          <%# giras.each_slice(4) do |gira_group| %>
+<!--            <div class="row">-->
+              <%# gira_group.each do |gira| %>
+                <%#= render gira %>
+              <%# end %>
+<!--            </div>-->
+          <%# end %>
+<!--        </div>-->
+<!--      </div>-->
+    <%# end %>
+<!--  </div>-->
+
+  <div class="row bordered-row">
+    <div class="calendar-navigation">
+      <h2>
+        <%= link_to '<<', { start_date: (params[:start_date] ? Date.parse(params[:start_date]) : Date.today).beginning_of_month - 1.month }, class: "prev-month" %>
+      </h2>
+
+      <div class="calendar-header">
+        <h2>
+          <%= params[:start_date].present? ? I18n.l(Date.parse(params[:start_date]), format: "%B %Y") : I18n.l(Date.today, format: "%B %Y") %>
+        </h2>
+      </div>
+      <h2>
+        <%= link_to '>>', { start_date: (params[:start_date] ? Date.parse(params[:start_date]) : Date.today).beginning_of_month + 1.month }, class: "next-month" %>
+      </h2>
+    </div>
+  </div>
+
+
+  <%= month_calendar events: @giras, start_date: params[:start_date] do |date, events| %>
+    <% if date.month == (params[:start_date] ? Date.parse(params[:start_date]).month : Date.today.month) %>
+        <strong><%= date.day %></strong>
+
+        <% events.each do |event| %>
+          <% event_class = event.type_of_gira == "Aberto" ? "event-open" : "event-closed" %>
+          <div class="event <%= event_class %>">
+            <strong><%= event.name %></strong>
+          </div>
+        <% end %>
+    <% end %>
+  <% end %>
+
+
+</div>
+

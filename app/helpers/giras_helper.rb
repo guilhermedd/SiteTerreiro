@@ -1,0 +1,2 @@
+module GirasHelper
+end

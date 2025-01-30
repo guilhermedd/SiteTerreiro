@@ -1,0 +1,190 @@
+/* Garanta que o HTML e o body ocupem toda a altura da tela */
+*= require simple_calendar
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Torna o corpo um contêiner flexível */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* A parte do conteúdo vai crescer para preencher o espaço disponível */
+.content {
+    flex: 1;
+}
+
+/* Estilo do rodapé */
+footer {
+    background-color: #343a40; /* Cor do fundo do rodapé */
+    color: white;
+}
+
+/* Estilo do link */
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Herda a cor do elemento pai (sem mudar para azul) */
+    display: flex; /* Alinha o texto e o ícone lado a lado */
+    align-items: center; /* Alinha verticalmente o ícone e o texto */
+    transition: transform 0.3s ease-in-out; /* Suaviza a transição para o aumento */
+}
+
+/* Ao passar o mouse, aumenta o tamanho do link inteiro */
+a:hover {
+    color: inherit; /* Garante que a cor não mude ao passar o mouse */
+    transform: scale(1.05); /* Aumenta o tamanho do link inteiro */
+}
+
+/* Espaço entre o texto e o ícone */
+a h2 {
+    margin-right: 8px; /* Espaço entre o texto e o ícone */
+    transition: none; /* Remove a transição do texto para evitar movimento */
+}
+
+/* Estilo do ícone */
+i {
+    margin-left: 8px; /* Espaço entre o texto e a seta */
+    transition: transform 0.3s ease-in-out; /* Suaviza a transição de rotação */
+}
+
+/* Ao passar o mouse, aumenta o tamanho da seta */
+a:hover i {
+    transform: scale(1.2); /* Aumenta a seta ao passar o mouse */
+}
+
+/* Rotaciona a seta quando o dropdown é aberto */
+.collapse.show + .collapsed i {
+    transform: rotate(180deg); /* Gira a seta */
+}
+
+.simple-calendar {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+nav.simple-calendar {
+    display: none; /* Oculta a navegação padrão do Simple Calendar */
+}
+
+.simple-calendar .next-month {
+    color: #ccc; /* Deixa os dias do próximo mês mais claros */
+    visibility: hidden; /* Oculta os dias extras do próximo mês */
+}
+
+.simple-calendar th, .simple-calendar td {
+    border: 1px solid #ddd;
+
+    padding: 8px;
+    text-align: left;
+    vertical-align: top; /* Mantém o conteúdo alinhado ao topo */
+    width: 14.28%; /* 100% dividido por 7 dias */
+    position: relative; /* Necessário para colocar o conteúdo acima */
+}
+
+.simple-calendar th {
+    background-color: #f4f4f4;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.simple-calendar .day {
+    height: 120px; /* Define uma altura fixa */
+    position: initial;
+    overflow: hidden; /* Impede que o conteúdo ultrapasse a célula */
+}
+
+.simple-calendar .event {
+    background-color: #e9ecef;
+    padding: 4px;
+    margin: 2px;
+    border-radius: 4px;
+    font-size: 12px; /* Deixa o texto menor para caber melhor */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    /*overflow: hidden;*/
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Fundo do evento (um tom mais escuro) */
+.simple-calendar .event.event-open {
+    background-color: #a3d6b3; /* Verde mais escuro para eventos abertos */
+    color: #0d3c25;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.simple-calendar .event.event-closed {
+    background-color: #e09a9f; /* Vermelho mais escuro para eventos fechados */
+    color: #570c13;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.simple-calendar .event strong {
+    display: block; /* Faz o título do evento ficar em uma linha separada */
+    font-size: 13px;
+}
+
+.simple-calendar .event:hover {
+    transform: scale(1.2); /* Aumenta a seta ao passar o mouse */
+    font-size: 11px;
+    color: #555;
+}
+
+.simple-calendar .calendar-heading {
+    display: none;
+}
+
+.calendar-header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.calendar-navigation {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.calendar-navigation a {
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.calendar-navigation a:hover {
+    transform: scale(1.2);
+}
+
+.bordered-row {
+    width: 100%;
+    margin: 0 auto; /* Garante centralização */
+    padding-top: 10px; /* Remove qualquer espaçamento interno */
+    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho */
+    border: 1px solid rgba(0, 0, 0, 0.18); /* Cor e espessura da borda */
+}
+
+/* Estilo para mostrar o dia no topo da célula */
+.simple-calendar td::before {
+    content: attr(data-day); /* A data será inserida como conteúdo antes do evento */
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza a data */
+    font-weight: bold;
+    font-size: 14px;
+    color: #333; /* Cor da data */
+}
