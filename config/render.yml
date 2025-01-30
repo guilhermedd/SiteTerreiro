@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: tenda-de-umbanda-ogum-yara
+    env: ruby
+    plan: free
+    buildCommand: bundle install
+    startCommand: bundle exec puma -C config/puma.rb
+    regions:
+      - oregon
