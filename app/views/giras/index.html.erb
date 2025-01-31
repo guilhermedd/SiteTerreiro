@@ -6,36 +6,76 @@
   </div>
 <% end %>
 
-<div class="container">
-  <div class="row bordered-row">
-    <div class="calendar-navigation">
-      <h2>
-        <%= link_to '<<', { start_date: (params[:start_date] ? Date.parse(params[:start_date]) : Date.today).beginning_of_month - 1.month }, class: "prev-month" %>
-      </h2>
+<br>
 
-      <div class="calendar-header">
-        <h2>
-          <%= params[:start_date].present? ? I18n.l(Date.parse(params[:start_date]), format: "%B %Y") : I18n.l(Date.today, format: "%B %Y") %>
-        </h2>
+<div class="container">
+  <div class="row"> <!-- Adiciona uma nova linha para o calendário e a legenda -->
+    <div class="col-md-10"> <!-- Coluna para o calendário (ocupando 8/12 do espaço) -->
+      <div class="row ">
+        <div class="calendar-navigation">
+          <h2>
+            <%= link_to '<<', { start_date: (params[:start_date] ? Date.parse(params[:start_date]) : Date.today).beginning_of_month - 1.month }, class: "prev-month" %>
+          </h2>
+
+          <div class="calendar-header">
+            <h2>
+              <%= params[:start_date].present? ? I18n.l(Date.parse(params[:start_date]), format: "%B %Y") : I18n.l(Date.today, format: "%B %Y") %>
+            </h2>
+          </div>
+          <h2>
+            <%= link_to '>>', { start_date: (params[:start_date] ? Date.parse(params[:start_date]) : Date.today).beginning_of_month + 1.month }, class: "next-month" %>
+          </h2>
+        </div>
       </div>
-      <h2>
-        <%= link_to '>>', { start_date: (params[:start_date] ? Date.parse(params[:start_date]) : Date.today).beginning_of_month + 1.month }, class: "next-month" %>
-      </h2>
+
+      <div class="calendar-container">
+        <%= month_calendar events: @giras do |date, events| %>
+          <% if date.month == (params[:start_date] ? Date.parse(params[:start_date]).month : Date.today.month) %>
+            <strong><%= date.day %></strong>
+
+            <% events.each do |event| %>
+              <% event_class = if event.type_of_gira == "Aberto"
+                                 "event-open"
+                               else
+                                 event.type_of_gira == "Fechado" ? "event-closed" : "event-development"
+                               end %>
+              <div class="event <%= event_class %>">
+                <strong><%= link_to event.name, gira_path(event) %></strong>
+
+                <%#= link_to 'Ver detalhes', gira_path(event) %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="row pt-5">
+        <div class="calendar-legend">
+          <h3>Legenda:</h3>
+          <div class="row pb-3">
+            <div class="event event-open">
+              <strong>Gira Aberta</strong>
+            </div>
+          </div>
+          <div class="row pb-3">
+            <div class="event event-closed">
+              <strong>Gira Fechada</strong>
+            </div>
+          </div>
+          <div class="row pb-3">
+            <div class="event event-development">
+              <strong>Desenvolvimento</strong>
+            </div>
+          </div>
+          <% if user_signed_in? and current_user.name == "admin" %>
+            <div class="row pb-3">
+                <%= link_to "Criar nova Gira", new_gira_path, class: "btn btn-primary", type: "button"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-
-
-  <%= month_calendar events: @giras do |date, events| %>
-    <% if date.month == (params[:start_date] ? Date.parse(params[:start_date]).month : Date.today.month) %>
-        <strong><%= date.day %></strong>
-
-        <% events.each do |event| %>
-          <% event_class = event.type_of_gira == "Aberto" ? "event-open" : "event-closed" %>
-          <div class="event <%= event_class %>">
-            <strong><%= event.name %></strong>
-          </div>
-        <% end %>
-    <% end %>
-  <% end %>
 </div>
-

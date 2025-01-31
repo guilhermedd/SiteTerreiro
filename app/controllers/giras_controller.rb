@@ -1,35 +1,14 @@
 class GirasController < ApplicationController
   include GirasHelper
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_gira, only: %i[ show edit update destroy ]
-  def search
-    months = {
-      "janeiro"   => 01,
-      "fevereiro" => 02,
-      "março"     => 03,
-      "abril"     => 04,
-      "maio"      => 05,
-      "junho"     => 06,
-      "julho"     => 07,
-      "agosto"    =>  8,
-      "setembro"  =>  9,
-      "outubro"   => 10,
-      "novembro"  => 11,
-      "dezembro"  => 12
-    }
-    @giras = Gira.all.select{ |gira| gira.event_date.month == months[params[:month].downcase]}
-    if @giras.empty?
-      @giras = Gira.all
-    end
-
-    render :index
-  end
   def index
     @giras = Gira.all
   end
 
   # GET /giras/1 or /giras/1.json
   def show
+    @gira = Gira.find(params[:id])
   end
 
   # GET /giras/new
@@ -47,7 +26,7 @@ class GirasController < ApplicationController
 
     respond_to do |format|
       if @gira.save
-        format.html { redirect_to @gira, notice: "Gira was successfully created." }
+        format.html { redirect_to @gira, notice: "Gira criada com sucesso." }
         format.json { render :show, status: :created, location: @gira }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -87,6 +66,6 @@ class GirasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gira_params
-      params.expect(gira: [ :event_date, :name, :type_of_gira ])
+      params.expect(gira: [ :event_date, :name, :type_of_gira, :description])
     end
 end

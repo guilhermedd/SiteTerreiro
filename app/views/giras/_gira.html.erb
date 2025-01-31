@@ -1,12 +1,22 @@
-<div class="col-md-3 col-3 mb-3">
-  <div class="card">
+<% event_class = if gira.type_of_gira == "Aberto"
+                   "event-open"
+                 else
+                   gira.type_of_gira == "Fechado" ? "event-closed"
+                     : "event-development"
+                 end
+                 %>
+
+<div class="col-4">
+  <div class="card ">
     <h5 class="card-header"><%= gira.get_day %></h5>
-    <div class="card-body">
+    <div class="card-body ">
       <h5 class="card-title"><%= gira.name %></h5>
-      <p class="card-text"><%= gira.type_of_gira %></p>
-      <% if user_signed_in? %>
-        <a href="#" class="btn btn-primary btn-sm">Marcar Presença</a>
-      <% end %>
+
+      <p class="card-text"><%= gira.description %></p>
+
+      <div class="card-text event <%= event_class %>">
+        <strong><%= gira.type_of_gira %></strong>
+      </div>
     </div>
   </div>
 </div>

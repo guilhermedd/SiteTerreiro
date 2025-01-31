@@ -21,24 +21,18 @@
     <%= form.text_field :name %>
   </div>
 
+  <div>
+    <%= form.label :description, style: "display: block" %>  <!-- Adiciona o label para o campo de descrição -->
+    <%= form.text_area :description, rows: 4, cols: 50 %>  <!-- Campo para descrição longa -->
+  </div>
+
   <div class="mb-3" style="max-width: 300px;">
       <%= form.label :type_of_gira, "Tipo de Gira" %>
       <%= form.select :type_of_gira,
-                      [["Aberto", "Aberto"], ["Fechado", "Fechado"], ["Outro", "outro"]],
+                      [["Aberto", "Aberto"], ["Fechado", "Fechado"], ["Desenvolvimento", "Desenvolvimento"]],
                       { prompt: "Selecione o tipo de gira" },
                       { class: "form-select", id: "type_of_gira_select" } %>
-
-      <div id="default-div">
-        <p>Div padrão</p>
-      </div>
-
-      <div id="outro-div" style="display: none;">
-        <p>Div para quando o tipo for "outro".</p>
-      </div>
   </div>
-
-
-
 
   <div>
     <%= form.submit %>

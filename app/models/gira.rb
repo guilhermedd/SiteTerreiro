@@ -4,6 +4,9 @@ class Gira
   field :event_date, type: Date
   field :name, type: String
   field :type_of_gira, type: String
+  field :description, type: String
+  field :confirmed_count, type: Integer, default: 0
+  field :confirmed_emails, type: Array, default: []
 
   # Tornando o método público
   def month_name
