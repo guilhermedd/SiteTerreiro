@@ -1,11 +1,13 @@
 <% content_for :title, "New gira" %>
 
-<h1>New gira</h1>
 
-<%= render "form", gira: @gira %>
+<div class="container">
+  <h1 class="py-5 text-center">Criar Evento</h1>
+
+  <div class="row">
+    <%= render "form", gira: @gira %>
+  </div>
+</div>
+
 
 <br>
-
-<div>
-  <%= link_to "Back to giras", giras_path %>
-</div>

@@ -36,8 +36,12 @@
             <% events.each do |event| %>
               <% event_class = if event.type_of_gira == "Aberto"
                                  "event-open"
-                               else
-                                 event.type_of_gira == "Fechado" ? "event-closed" : "event-development"
+                               elsif event.type_of_gira == "Fechado"
+                                 "event-closed"
+                               elsif event.type_of_gira == "Desenvolvimento"
+                                 "event-development"
+                               elsif event.type_of_gira == "Evento"
+                                 "event-other"
                                end %>
               <div class="event <%= event_class %>">
                 <strong><%= link_to event.name, gira_path(event) %></strong>
@@ -67,6 +71,11 @@
           <div class="row pb-3">
             <div class="event event-development">
               <strong>Desenvolvimento</strong>
+            </div>
+          </div>
+          <div class="row pb-3">
+            <div class="event event-other">
+              <strong>Evento</strong>
             </div>
           </div>
           <% if user_signed_in? and current_user.name == "admin" %>

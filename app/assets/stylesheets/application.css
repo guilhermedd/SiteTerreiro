@@ -133,6 +133,14 @@ nav.simple-calendar {
     border-radius: 4px;
 }
 
+.event.event-other {
+    background-color: #a8d1f3; /* Azul suave para eventos pendentes */
+    color: #124a7a; /* Azul escuro para contraste */
+    padding: 5px;
+    border-radius: 4px;
+}
+
+
 .simple-calendar .event strong {
     display: block; /* Faz o título do evento ficar em uma linha separada */
     font-size: 13px;
