@@ -23,7 +23,7 @@
     </div>
 
     <div class="col-8" style="max-width: 300px;">
-      <%= form.label "Descrição", "Tipo de Gira" %>
+      <%= form.label "Descrição", "Tipo de evento" %>
       <%= form.select :type_of_gira,
                       [["Gira aberta", "Aberto"], ["Gira fechado", "Fechado"], ["Desenvolvimento", "Desenvolvimento"], ["Outro evento", "Evento"]],
                       { prompt: "Selecione o tipo de evento" },
@@ -37,10 +37,14 @@
 
     <div class="row justify-content-center py-3">
       <div class="col-auto">
-        <%= form.submit "Criar Evento", class: "btn btn-primary btn-lg" %>
+        <%= form.submit "Confirmar Evento", class: "btn btn-primary btn-lg" %>
       </div>
     </div>
 
+
+    <div class="row-6 d-flex justify-content-center">
+      <%= link_to "Cancelar", root_path, class: "btn btn-danger btn-lg", data: { turbo: "false", turbo_confirm: "Tem certeza que deseja cancelar?" } %>
+    </div>
 
   </div>
 <% end %>

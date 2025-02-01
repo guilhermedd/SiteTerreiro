@@ -13,3 +13,4 @@ pin "bootstrap-icons", to: "https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bo
 pin "application", to: "application.js"
 
 
+pin "@rails/ujs", to: "@rails--ujs.js" # @7.1.3
