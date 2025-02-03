@@ -11,13 +11,19 @@ class GirasController < ApplicationController
     @gira = Gira.find(params[:id])
     @presenca = @gira.presencas.new(presenca_params)
 
+    # Se o usuário está logado, já preencher o campo de email com o email do usuário
+    if user_signed_in? && @presenca.email.blank?
+      @presenca.email = current_user.email
+    end
+
     if @presenca.save
       redirect_to @gira, notice: 'Presença adicionada com sucesso!'
     else
-      flash.now[:alert] = "Esse email já está associado com esse evento."
+      flash.now[:alert] = @presenca.errors.full_messages.to_sentence
       render :show
     end
   end
+
 
   # GET /giras/1 or /giras/1.json
   def show

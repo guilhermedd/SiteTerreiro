@@ -24,7 +24,7 @@
               <div class="mb-3">
                 <%= form.label :email, "Seu Email" %>
                 <% if user_signed_in? %>
-                  <input type="text" value="<%= current_user.email %>" class="form-control" disabled />
+                  <%= form.email_field :email, value: current_user.email, class: "form-control", disabled: true %>
                 <% else %>
                   <%= form.email_field :email, required: true, class: "form-control" %>
                 <% end %>
@@ -34,6 +34,7 @@
                 <%= form.label :quantidade, "Número de Pessoas" %>
                 <%= form.number_field :quantidade, min: 1, required: true, class: "form-control" %>
               </div>
+
               <div class="mb-3">
                 <%= form.submit "Adicionar Presença", class: "btn btn-primary" %>
               </div>

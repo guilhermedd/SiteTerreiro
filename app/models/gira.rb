@@ -1,17 +1,8 @@
-class Gira
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  field :event_date, type: Date
-  field :name, type: String
-  field :type_of_gira, type: String
-  field :description, type: String
-
+class Gira < ApplicationRecord
   has_many :presencas
 
-  validates :event_date, :name, :type_of_gira, :description, :presence => true
+  validates :event_date, :name, :type_of_gira, :description, presence: true
 
-
-  # Tornando o método público
   def month_name
     months = {
       1 => "Janeiro",
@@ -33,7 +24,6 @@ class Gira
   def start_time
     event_date
   end
-
 
   def get_day
     "%.2d/%.2d/%d" % [event_date.day, event_date.month, event_date.year]
