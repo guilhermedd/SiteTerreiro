@@ -1,20 +1,61 @@
 <div class="container">
+
   <div class="row justify-content-center p-5">
     <%= render @gira %>
   </div>
 
-    <div class="row justify-content-center">
+  <div class="row justify-content-center">
+    <% if @gira.event_date >= Date.today  %>
       <div class="col-4 justify-content-center text-center pt-3">
-        <a href="#" class="btn btn-primary">Marcar Presença</a>
-      </div>
-      <% if user_signed_in? and current_user.name == "admin" %>
-        <div class="col-4 justify-content-center text-center p-3">
-          <%= link_to "Editar essa Gira", edit_gira_path(@gira), class: "btn btn-warning", type: "button" %>
-        </div>
-        <div class="col-4 justify-content-center text-center p-3">
-          <%= button_to "Deletar essa gira", @gira, method: :delete, class: "btn btn-danger", data: { confirm: "Tem certeza de que deseja deletar esta gira?" }, type: "button" %>
-        </div>
+        <!-- Botão que abre o offcanvas -->
+        <a class="btn btn-primary justify-content-center" data-bs-toggle="offcanvas" href="#offcanvasAddPresence" role="button" aria-controls="offcanvasAddPresence">
+          Adicionar Presença
+        </a>
 
+        <!-- Offcanvas com o formulário para adicionar a presença -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasAddPresence" aria-labelledby="offcanvasAddPresenceLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-center" id="offcanvasAddPresenceLabel">Adicionar Presença</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body text-start d-flex justify-content-start">
+            <!-- Dentro do seu formulário para a presença -->
+            <%= form_with(model: @presenca, url: add_presence_gira_path(gira_id: @gira.id), method: :post, data: { turbo: true }) do |form| %>
+              <div class="mb-3">
+                <%= form.label :email, "Seu Email" %>
+                <% if user_signed_in? %>
+                  <input type="text" value="<%= current_user.email %>" class="form-control" disabled />
+                <% else %>
+                  <%= form.email_field :email, required: true, class: "form-control" %>
+                <% end %>
+              </div>
+
+              <div class="mb-3">
+                <%= form.label :quantidade, "Número de Pessoas" %>
+                <%= form.number_field :quantidade, min: 1, required: true, class: "form-control" %>
+              </div>
+              <div class="mb-3">
+                <%= form.submit "Adicionar Presença", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     <% end %>
-    </div>
+
+    <% if user_signed_in? and current_user.name == "admin" %>
+      <div class="col-4 justify-content-center text-center p-3">
+        <%= link_to "Editar essa Gira", edit_gira_path(@gira), class: "btn btn-warning", type: "button" %>
+      </div>
+      <div class="col-4 justify-content-center text-center p-3">
+        <%= button_to "Deletar essa gira", @gira, method: :delete, class: "btn btn-danger", data: { confirm: "Tem certeza de que deseja deletar esta gira?" }, type: "button" %>
+      </div>
+      <div class="col-12 text-center p-3">
+        <h4>Presenças</h4>
+        <%= turbo_stream_from "gira_#{@gira.id}_presencas" %>
+        <p>Numero de presenças: <%= @total_presencas || @gira.presencas.sum(:quantidade) %></p>
+      </div>
+
+  <% end %>
+  </div>
 </div>

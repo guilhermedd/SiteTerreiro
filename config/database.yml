@@ -1,0 +1,11 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: guidd
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: localhost
+
+development:
+  <<: *default
+  database: terreiro_umbanda

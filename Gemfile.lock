@@ -87,7 +87,6 @@ GEM
       msgpack (~> 1.2)
     brakeman (6.2.2)
       racc
-    bson (5.0.2)
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -167,12 +166,6 @@ GEM
     mime-types-data (3.2024.1203)
     mini_mime (1.1.5)
     minitest (5.25.4)
-    mongo (2.21.0)
-      bson (>= 4.14.1, < 6.0.0)
-    mongoid (9.0.3)
-      activemodel (>= 5.1, < 8.1, != 7.0.0)
-      concurrent-ruby (>= 1.0.5, < 2.0)
-      mongo (>= 2.18.0, < 3.0.0)
     msgpack (1.7.5)
     net-imap (0.5.1)
       date
@@ -208,6 +201,7 @@ GEM
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
+    pg (1.5.9)
     propshaft (1.1.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -373,7 +367,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
-  mongoid
+  pg
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.0)

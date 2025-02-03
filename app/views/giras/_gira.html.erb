@@ -15,7 +15,11 @@
     <div class="card-body ">
       <h5 class="card-title"><%= gira.name %></h5>
 
-      <p class="card-text"><%= gira.description.gsub("\n", "<br>").html_safe %></p>
+      <% if gira.description %>
+        <p class="card-text"><%= gira.description.gsub("\n", "<br>").html_safe %></p>
+      <% else %>
+        <p class="card-text">Esse evento não possui descrição ainda...</p>
+      <% end %>
 
       <div class="card-text event <%= event_class %>">
         <strong><%= gira.type_of_gira %></strong>

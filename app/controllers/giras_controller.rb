@@ -1,14 +1,29 @@
 class GirasController < ApplicationController
   include GirasHelper
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :add_presence]
   before_action :set_gira, only: %i[ show edit update destroy ]
   def index
     @giras = Gira.all
   end
 
+  # Para adicionar a presença f
+  def add_presence
+    @gira = Gira.find(params[:id])
+    @presenca = @gira.presencas.new(presenca_params)
+
+    if @presenca.save
+      redirect_to @gira, notice: 'Presença adicionada com sucesso!'
+    else
+      flash.now[:alert] = "Esse email já está associado com esse evento."
+      render :show
+    end
+  end
+
   # GET /giras/1 or /giras/1.json
   def show
     @gira = Gira.find(params[:id])
+    @total_presencas = @gira.presencas.sum(:quantidade)  # Somando as quantidades
+    @presenca = @gira.presencas.build
   end
 
   # GET /giras/new
@@ -39,7 +54,7 @@ class GirasController < ApplicationController
   def update
     respond_to do |format|
       if @gira.update(gira_params)
-        format.html { redirect_to @gira, notice: "Gira was successfully updated." }
+        format.html { redirect_to @gira, notice: "Gira editada com sucesso." }
         format.json { render :show, status: :ok, location: @gira }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +68,7 @@ class GirasController < ApplicationController
     @gira.destroy!
 
     respond_to do |format|
-      format.html { redirect_to giras_path, status: :see_other, notice: "Gira was successfully destroyed." }
+      format.html { redirect_to giras_path, status: :see_other, notice: "Gira deletada com sucesso." }
       format.json { head :no_content }
     end
   end
@@ -67,5 +82,9 @@ class GirasController < ApplicationController
     # Only allow a list of trusted parameters through.
     def gira_params
       params.expect(gira: [ :event_date, :name, :type_of_gira, :description])
+    end
+
+    def presenca_params
+      params.require(:presenca).permit(:email, :quantidade)  # Ajuste os parâmetros conforme o seu modelo
     end
 end

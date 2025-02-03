@@ -3,7 +3,8 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.0"
 
-gem "mongoid"
+gem 'pg'  # PostgreSQL
+
 
 gem 'devise'
 

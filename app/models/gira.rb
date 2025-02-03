@@ -5,8 +5,11 @@ class Gira
   field :name, type: String
   field :type_of_gira, type: String
   field :description, type: String
-  field :confirmed_count, type: Integer, default: 0
-  field :confirmed_emails, type: Array, default: []
+
+  has_many :presencas
+
+  validates :event_date, :name, :type_of_gira, :description, :presence => true
+
 
   # Tornando o método público
   def month_name

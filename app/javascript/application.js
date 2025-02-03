@@ -14,27 +14,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (selectElement) {
         function checkType() {
+            // Alternando as classes CSS visíveis e ocultas
             if (selectElement.value === "outro") {
-                outroDiv.style.display = "block";
-                defaultDiv.style.display = "none";
+                outroDiv.classList.remove("hidden");
+                outroDiv.classList.add("visible");
+
+                defaultDiv.classList.remove("visible");
+                defaultDiv.classList.add("hidden");
             } else {
-                outroDiv.style.display = "none";
-                defaultDiv.style.display = "block";
+                outroDiv.classList.remove("visible");
+                outroDiv.classList.add("hidden");
+
+                defaultDiv.classList.remove("hidden");
+                defaultDiv.classList.add("visible");
             }
         }
 
         checkType();
         selectElement.addEventListener("change", checkType);
-    }
-
-    // Adiciona a confirmação no botão "Cancelar"
-    const cancelLink = document.querySelector(".btn-danger");
-    if (cancelLink) {
-        cancelLink.addEventListener("click", function (event) {
-            const confirmacao = confirm("Tem certeza que deseja cancelar?");
-            if (!confirmacao) {
-                event.preventDefault(); // Cancela a ação se o usuário não confirmar
-            }
-        });
     }
 });
