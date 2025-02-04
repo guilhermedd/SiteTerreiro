@@ -20,7 +20,6 @@
   <!-- Adicionando nonce para scripts -->
   <%= javascript_include_tag "application", type: "module", nonce: content_security_policy_nonce, "data-turbo-track": "reload" %>
 
-
   <link rel="icon" href="/icon.png" type="image/png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/icon.png">
@@ -30,23 +29,30 @@
 <div class="wrapper">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <%= link_to "Home", root_path, class: "navbar-brand" %>
+
+      <%= link_to root_path, class: "navbar-brand", onclick: "setActiveHome(this)" do %>
+        <%= image_tag "brazao.png", alt: "Home", width: "50", height: "auto", class: "d-inline-block align-middle" %>
+      <% end %>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Sobre nós</a>
+            <%= link_to "Agenda", root_path, class: "nav-link #{'active' if current_page?(root_path)}", onclick: "setActiveLink(this)" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Galeria</a>
+            <%= link_to "Sobre nós", about_us_path, class: "nav-link #{'active' if current_page?(about_us_path)}", onclick: "setActiveLink(this)" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Localização</a>
+            <%= link_to "Galeria", galery_photos_path, class: "nav-link #{'active' if current_page?(galery_photos_path)}", onclick: "setActiveLink(this)" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Contate-nos</a>
+            <%= link_to "Localização", locations_path, class: "nav-link #{'active' if current_page?(locations_path)}", onclick: "setActiveLink(this)" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Contate-nos", contacts_path, class: "nav-link #{'active' if current_page?(contacts_path)}", onclick: "setActiveLink(this)" %>
           </li>
         </ul>
         <div class="d-flex ms-auto align-items-center">
@@ -75,6 +81,19 @@
 
 <!-- Carregar JavaScript do Bootstrap (Versão com Popper já incluído) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+    function setActiveLink(element) {
+        // Remove 'active' de todos os links
+        var links = document.querySelectorAll('.navbar-nav .nav-link');
+        links.forEach(function(link) {
+            link.classList.remove('active');
+        });
+
+        // Adiciona 'active' ao link clicado
+        element.classList.add('active');
+    }
+</script>
 
 </body>
 </html>

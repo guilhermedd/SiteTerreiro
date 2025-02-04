@@ -1,4 +1,5 @@
 *= require simple_calendar
+
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
 
 
@@ -44,6 +45,12 @@ a h2 {
     margin-right: 8px; /* Espaço entre o texto e o ícone */
     transition: none; /* Remove a transição do texto para evitar movimento */
 }
+
+.navbar-brand img {
+    max-width: 100px; /* Ajuste conforme necessário */
+    height: auto;
+}
+
 
 /* Estilo do ícone */
 i {

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Olá!</h1>
+<h2>Sua presença foi confirmada para o evento "<strong><%= @evento.name %></strong>".</h2>
+<h3>Obrigado por confirmar a presença de <%= @presenca.quantidade %> pessoa(s)!</h3>
+
+<h1>Descrição do evento:</h1>
+
+<h2><%= @evento.description.gsub("\n", "<br>").html_safe %></h2>
+
+</body>
+</html>

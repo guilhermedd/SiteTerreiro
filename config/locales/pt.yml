@@ -9,5 +9,6 @@ pt:
     week: Mês
   devise:
     sessions:
-      signed_out: 'Você foi desconectado com sucesso.'
-      signed_in: 'Você se conectou com sucesso.'
+      signed_out: 'Você foi desconectado com sucesso!'
+      signed_in: 'Bem-vindo de volta!'
+      signed_up: "Cadastro realizado com sucesso!"

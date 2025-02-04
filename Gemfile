@@ -8,6 +8,9 @@ gem 'pg'  # PostgreSQL
 
 gem 'devise'
 
+gem 'mailersend-ruby'
+
+
 gem 'rails-i18n'
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]

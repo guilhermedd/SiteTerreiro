@@ -11,12 +11,12 @@ class GirasController < ApplicationController
     @gira = Gira.find(params[:id])
     @presenca = @gira.presencas.new(presenca_params)
 
-    # Se o usuário está logado, já preencher o campo de email com o email do usuário
     if user_signed_in? && @presenca.email.blank?
       @presenca.email = current_user.email
     end
 
     if @presenca.save
+      PresencaMailer.send_welcome_email(@presenca, @gira).deliver_later
       redirect_to @gira, notice: 'Presença adicionada com sucesso!'
     else
       flash.now[:alert] = @presenca.errors.full_messages.to_sentence
@@ -30,6 +30,18 @@ class GirasController < ApplicationController
     @gira = Gira.find(params[:id])
     @total_presencas = @gira.presencas.sum(:quantidade)  # Somando as quantidades
     @presenca = @gira.presencas.build
+  end
+
+  def about_us
+  end
+
+  def contact
+  end
+
+  def galery
+  end
+
+  def locations
   end
 
   # GET /giras/new

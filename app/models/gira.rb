@@ -1,5 +1,5 @@
 class Gira < ApplicationRecord
-  has_many :presencas
+  has_many :presencas, dependent: :destroy
 
   validates :event_date, :name, :type_of_gira, :description, presence: true
 

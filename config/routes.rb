@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :galery_photos
+  resources :galeries
   devise_for :users
   resources :giras do
     member do
@@ -6,10 +8,16 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :galeries
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
   get 'search' => "giras#search", as: :search
+  get 'about_us', to: "giras#about_us", as: :about_us
+  get 'locations', to: "giras#locations", as: :locations
+  get 'contacts', to: "giras#contacts", as: :contacts
+
   post 'change_device' => "giras#change_device", as: :change_device
 
 
