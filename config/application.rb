@@ -1,4 +1,6 @@
 require_relative "boot"
+require 'dartsass-sprockets'
+
 
 require "rails"
 # Pick the frameworks you want:
@@ -23,6 +25,10 @@ module SiteTerreiro
     config.time_zone = 'Brasilia'
     config.i18n.available_locales = [:en, :pt]
     config.i18n.default_locale = :pt
+
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join('app', 'assets', 'javascripts')
+
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0

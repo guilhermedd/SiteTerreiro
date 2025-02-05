@@ -12,13 +12,19 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+  <!-- Adicionando nonce para scripts -->
+  <%= javascript_importmap_tags  %>
+
+  <%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min' %>
+  <%= javascript_include_tag "application", type: "module", nonce: content_security_policy_nonce, "data-turbo-track": "reload" %>
+
   <%= yield :head %>
 
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" %>
+  <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" %>
 
-  <!-- Adicionando nonce para scripts -->
-  <%= javascript_include_tag "application", type: "module", nonce: content_security_policy_nonce, "data-turbo-track": "reload" %>
+
 
   <link rel="icon" href="/icon.png" type="image/png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -46,7 +52,7 @@
             <%= link_to "Sobre nós", about_us_path, class: "nav-link #{'active' if current_page?(about_us_path)}", onclick: "setActiveLink(this)" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Galeria", galery_photos_path, class: "nav-link #{'active' if current_page?(galery_photos_path)}", onclick: "setActiveLink(this)" %>
+            <%= link_to "Galeria", galeries_path, class: "nav-link #{'active' if current_page?(galeries_path)}", onclick: "setActiveLink(this)" %>
           </li>
           <li class="nav-item">
             <%= link_to "Localização", locations_path, class: "nav-link #{'active' if current_page?(locations_path)}", onclick: "setActiveLink(this)" %>
@@ -80,20 +86,24 @@
 </div>
 
 <!-- Carregar JavaScript do Bootstrap (Versão com Popper já incluído) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 <script>
-    function setActiveLink(element) {
-        // Remove 'active' de todos os links
-        var links = document.querySelectorAll('.navbar-nav .nav-link');
-        links.forEach(function(link) {
-            link.classList.remove('active');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Seleciona o contêiner onde os botões serão adicionados
+        const container = document.getElementById('pessoas-container');
+
+        // Adiciona um ouvinte de evento de clique ao contêiner
+        container.addEventListener('click', function(event) {
+            // Verifica se o elemento clicado é o botão desejado
+            if (event.target && event.target.id === 'meuBotao') {
+                var paragrafo = document.createElement('p');
+                // Define o conteúdo do parágrafo como "Olá"
+                paragrafo.textContent = 'Olá';
+                // Adiciona o parágrafo ao corpo da página
+                document.getElementById("pessoas-container").appendChild(paragrafo);
+            }
         });
-
-        // Adiciona 'active' ao link clicado
-        element.classList.add('active');
-    }
+    });
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

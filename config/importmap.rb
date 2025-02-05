@@ -1,17 +1,17 @@
-# Pin npm packages by running ./bin/importmap
-
+# Pinar o arquivo application.js
 pin "application", preload: true
-pin "custom", to: "custom.js"
-pin "@hotwired/turbo-rails", to: "turbo.min.js"
+
+
+# Pinar Bootstrap e Popper.js
+pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.3.3/dist/js/bootstrap.esm.js"
+pin "@popperjs/core", to: "https://unpkg.com/@popperjs/core@2.11.2/dist/esm/index.js"
+
+# Pinar todos os controladores do Stimulus
+pin_all_from "app/javascript/controllers", under: "controllers", preload: true
+pin "@hotwired/turbo-rails", to: "@hotwired--turbo-rails.js", preload: true # @8.0.12
+pin "@hotwired/turbo", to: "@hotwired--turbo.js", preload: true # @8.0.12
+pin "@rails/actioncable/src", to: "@rails--actioncable--src.js", preload: true # @7.2.201
+pin "@hotwired/stimulus", to: "@hotwired--stimulus.js", preload: true # @3.2.2
 pin "@hotwired/stimulus", to: "stimulus.min.js"
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
-
 pin_all_from "app/javascript/controllers", under: "controllers"
-# config/importmap.rb
-# config/importmap.rb
-pin "bootstrap", to: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-pin "bootstrap-icons", to: "https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-pin "application", to: "application.js"
-
-
-pin "@rails/ujs", to: "@rails--ujs.js" # @7.1.3
