@@ -5,6 +5,8 @@ gem "rails", "~> 8.0.0"
 
 gem 'pg'  # PostgreSQL
 
+gem "image_processing"
+
 
 gem 'devise'
 
@@ -14,9 +16,6 @@ gem "bootstrap", "~> 5.3.3"
 
 gem "dartsass-sprockets"
 
-gem 'importmap-rails'
-
-
 gem 'rails-i18n'
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
@@ -24,7 +23,6 @@ gem "propshaft"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]

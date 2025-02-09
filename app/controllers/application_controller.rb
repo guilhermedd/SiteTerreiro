@@ -3,4 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   allow_browser versions: :modern
 
+  protect_from_forgery with: :exception
+
+  def is_admin?
+    user_signed_in? and current_user.email == ENV['ADMIN_EMAIL']
+  end
+
 end

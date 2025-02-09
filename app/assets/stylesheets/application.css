@@ -242,3 +242,42 @@ nav.simple-calendar {
 .legend-closed {
     background-color: red;
 }
+
+/* Garante que os controles de navegação (Próximo/Anterior) não fiquem sobrepondo o conteúdo */
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+#galleryModal .modal-body img {
+    max-width: 100%;   /* A imagem não ultrapassa o modal */
+    max-height: 80vh;  /* Garante que a imagem não ultrapasse a tela */
+    width: auto;       /* Mantém a proporção correta */
+    height: auto;
+    object-fit: contain;  /* A imagem se ajusta dentro do espaço sem cortar */
+    display: block;
+    margin: 0 auto;    /* Centraliza a imagem */
+}
+
+#modalCarousel .carousel-control-prev,
+#modalCarousel .carousel-control-next {
+    opacity: 100;  /* Garante que as setas fiquem visíveis */
+    transition: opacity 0.3s ease-in-out; /* Transição suave */
+    z-index: 10;  /* Garante que as setas fiquem sobre as imagens */
+}
+
+#modalCarousel .carousel-control-prev:hover,
+#modalCarousel .carousel-control-next:hover {
+    opacity: 1;  /* Mantém as setas visíveis ao passar o mouse */
+}
+

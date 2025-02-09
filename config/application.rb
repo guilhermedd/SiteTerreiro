@@ -3,6 +3,9 @@ require 'dartsass-sprockets'
 
 
 require "rails"
+# config/application.rb
+require "active_storage/engine"
+
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"

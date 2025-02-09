@@ -77,7 +77,7 @@
     <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.8, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-form_data (v2.3.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.7, mise: 3.3.6) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v2.0.3, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="image_processing (v1.13.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.8.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.15.1, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.13.0, mise: 3.3.6) [gem]" level="application" />
@@ -93,6 +93,7 @@
     <orderEntry type="library" scope="PROVIDED" name="matrix (v0.4.2, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.6.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2024.1203, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_magick (v4.13.2, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.25.4, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.7.5, mise: 3.3.6) [gem]" level="application" />
@@ -143,6 +144,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rubocop-rails (v2.27.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-rails-omakase (v1.0.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.13.0, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-vips (v2.2.2, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.3.2, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-embedded (v1.83.4, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sassc-embedded (v1.80.2, mise: 3.3.6) [gem]" level="application" />
