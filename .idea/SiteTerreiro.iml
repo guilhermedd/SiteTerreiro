@@ -42,6 +42,12 @@
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.7, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.2, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v10.4.19.0, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-eventstream (v1.3.0, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-partitions (v1.1048.0, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-core (v3.218.1, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-kms (v1.98.0, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-s3 (v1.180.0, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sigv4 (v1.11.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="base64 (v0.2.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.20, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt_pbkdf (v1.1.1, mise: 3.3.6) [gem]" level="application" />
@@ -81,6 +87,7 @@
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.8.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.15.1, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.13.0, mise: 3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jmespath (v1.6.2, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v2.9.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kamal (v2.4.0, mise: 3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.3, mise: 3.3.6) [gem]" level="application" />
@@ -373,6 +380,17 @@
     <option name="myRootTask">
       <RakeTaskImpl id="rake">
         <subtasks>
+          <RakeTaskImpl id="active_storage">
+            <subtasks>
+              <RakeTaskImpl description="Copy over the migration needed to the application" fullCommand="active_storage:install" id="install" />
+              <RakeTaskImpl id="install">
+                <subtasks>
+                  <RakeTaskImpl description="" fullCommand="active_storage:install:migrations" id="migrations" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="active_storage:update" id="update" />
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl id="app">
             <subtasks>
               <RakeTaskImpl description="Apply the template supplied by LOCATION=(/path/to/template) or URL" fullCommand="app:template" id="template" />
@@ -504,11 +522,6 @@
                 </subtasks>
               </RakeTaskImpl>
               <RakeTaskImpl description="" fullCommand="db:truncate_all" id="truncate_all" />
-            </subtasks>
-          </RakeTaskImpl>
-          <RakeTaskImpl id="importmap">
-            <subtasks>
-              <RakeTaskImpl description="Setup Importmap for the app" fullCommand="importmap:install" id="install" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="log">

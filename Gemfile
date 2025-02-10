@@ -14,6 +14,8 @@ gem 'mailersend-ruby'
 
 gem "bootstrap", "~> 5.3.3"
 
+gem 'aws-sdk-s3'
+
 gem "dartsass-sprockets"
 
 gem 'rails-i18n'
