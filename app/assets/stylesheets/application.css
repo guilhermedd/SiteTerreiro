@@ -281,3 +281,11 @@ nav.simple-calendar {
     opacity: 1;  /* Mantém as setas visíveis ao passar o mouse */
 }
 
+.teste {
+    transition: transform 0.3s ease-in-out; /* Suaviza a transição para o aumento */
+}
+
+.teste:hover {
+    transform: scale(1.5); /* Aumenta o tamanho do link inteiro */
+}
+

@@ -95,7 +95,7 @@
               <strong>Evento</strong>
             </div>
           </div>
-          <% if user_signed_in? and current_user.name == "admin" %>
+          <% if is_admin?  %>
             <div class="row pb-3">
                 <%= link_to "Criar nova Gira", new_gira_path, class: "btn btn-primary", type: "button"%>
             </div>

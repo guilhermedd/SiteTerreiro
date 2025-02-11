@@ -1,10 +1,12 @@
-<% content_for :title, "New gira" %>
+<% content_for :title, "criar evento" %>
 
 
-<div class="container">
-  <h1 class="py-5 text-center">Criar Evento</h1>
+<div class="container d-flex justify-content-center py-5">
+  <div class="w-50 border p-4 rounded shadow">
+    <h1 class="py-5 text-center display-4 fw-bold">Criar Evento</h1>
 
-  <div class="row">
-    <%= render "form", gira: @gira %>
+    <div class="row g-3 d-flex flex-column align-items-center">
+      <%= render "form", gira: @gira %>
+    </div>
   </div>
 </div>
