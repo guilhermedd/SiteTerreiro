@@ -47,11 +47,11 @@
           <li class="nav-item">
             <%= link_to "Galeria", galeries_path, class: "nav-link #{'active' if current_page?(galeries_path)}", onclick: "setActiveLink(this)" %>
           </li>
+<!--          <li class="nav-item">-->
+            <%#= link_to "Localização", locations_path, class: "nav-link #{'active' if current_page?(locations_path)}", onclick: "setActiveLink(this)" %>
+<!--          </li>-->
           <li class="nav-item">
-            <%= link_to "Localização", locations_path, class: "nav-link #{'active' if current_page?(locations_path)}", onclick: "setActiveLink(this)" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Contate-nos", contacts_path, class: "nav-link #{'active' if current_page?(contacts_path)}", onclick: "setActiveLink(this)" %>
+            <%= link_to "Contate-nos", contact_path, class: "nav-link #{'active' if current_page?(contact_path)}", onclick: "setActiveLink(this)" %>
           </li>
         </ul>
         <div class="d-flex ms-auto align-items-center">
@@ -87,7 +87,7 @@
   </div>
 </div>
 
-
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -225,6 +225,21 @@
             reader.readAsDataURL(file);
         });
     });
+
+    function initMap() {
+        // Cria um novo mapa centrado em uma latitude e longitude específicas
+        var map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -23.5505, lng: -46.6333 }, // Exemplo: coordenadas de São Paulo
+            zoom: 12,  // Nível de zoom inicial
+        });
+
+        // Adiciona um marcador no mapa
+        var marker = new google.maps.Marker({
+            position: { lat: -23.5505, lng: -46.6333 }, // Mesmas coordenadas
+            map: map,
+            title: "Localização do nosso atendimento"
+        });
+    }
 
 </script>
 

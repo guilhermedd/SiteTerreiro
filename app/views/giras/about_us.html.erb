@@ -7,69 +7,21 @@
   </div>
 
   <div class="row pt-4">
-    <div class="col-md-6 d-flex justify-content-center mb-4 work">
-      <div class="card shadow-lg" style="width: 80%;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Atendimento Fraterno</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Acolhimento e escuta</h6>
-          <p class="card-text">Oferecemos apoio e orientação para aqueles que buscam conforto emocional e espiritual.</p>
-        </div>
-      </div>
-    </div>
+    <%= render "about_us/atendimento" %>
 
-    <div class="col-md-6 d-flex justify-content-center mb-4 work">
-      <div class="card shadow-lg" style="width: 80%;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Tratamento Cura</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Energia e equilíbrio</h6>
-          <p class="card-text">Nosso trabalho visa o bem-estar físico, mental e espiritual através de práticas terapêuticas.</p>
-        </div>
-      </div>
-    </div>
+    <%= render "about_us/cura" %>
   </div>
 
   <div class="row pt-4">
-    <div class="col-md-6 d-flex justify-content-center mb-4 work">
-      <div class="card shadow-lg" style="width: 80%;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Tratamento Apométrico</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Harmonia espiritual</h6>
-          <p class="card-text">Utilizamos técnicas avançadas para proporcionar equilíbrio energético e evolução espiritual.</p>
-        </div>
-      </div>
-    </div>
+    <%= render "about_us/apometria" %>
 
-    <div class="col-md-6 d-flex justify-content-center mb-4 work">
-      <div class="card shadow-lg" style="width: 80%;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Ações Sociais</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Solidariedade e amor ao próximo</h6>
-          <p class="card-text">Promovemos iniciativas para ajudar comunidades carentes e fomentar o espírito de fraternidade.</p>
-        </div>
-      </div>
-    </div>
+    <%= render "about_us/social" %>
   </div>
 
   <div class="row pt-4">
-    <div class="col-md-6 d-flex justify-content-center mb-4 work">
-      <div class="card shadow-lg" style="width: 80%;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Noite do Sopão</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Alimentando corpos e corações</h6>
-          <p class="card-text">Toda semana oferecemos refeições quentes para aqueles que mais precisam.</p>
-        </div>
-      </div>
-    </div>
+    <%= render "about_us/sopa" %>
 
-    <div class="col-md-6 d-flex justify-content-center mb-4 work">
-      <div class="card shadow-lg" style="width: 80%;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Doação de Cestas Básicas</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Apoio às famílias carentes</h6>
-          <p class="card-text">Distribuímos alimentos essenciais para garantir o bem-estar de diversas famílias.</p>
-        </div>
-      </div>
-    </div>
+    <%= render "about_us/cesta" %>
   </div>
 </div>
 
@@ -80,5 +32,9 @@
 
     .work:hover {
         transform: scale(1.2); /* Aumenta o tamanho do link inteiro */
+    }
+
+    .offcanvas-backdrop {
+        background-color: rgba(0, 0, 0, 0.5); /* Ajuste a opacidade conforme necessário */
     }
 </style>

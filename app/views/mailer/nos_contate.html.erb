@@ -1,0 +1,11 @@
+<h1>Dúvida</h1>
+
+<h2>Informações Pessoais:</h2>
+<ul>
+  <li><strong>Nome:</strong> <%= name %></li>
+  <li><strong>Email:</strong> <%= email %></li>
+</ul>
+
+<h3><%= subject %></h3>
+
+<p><%= text.gsub("\n", "<br>").html_safe %></p>

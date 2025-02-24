@@ -1,1 +1,27 @@
 <h1>Localização</h1>
+
+<h1>Nosso Localização</h1>
+
+<!-- Onde o mapa será exibido -->
+<div id="map"></div>
+
+<!-- Inclua o script da API do Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+<script>
+    // Função que inicializa o mapa
+    function initMap() {
+        // Cria um novo mapa centrado em uma latitude e longitude específicas
+        var map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -23.5505, lng: -46.6333 }, // Exemplo: coordenadas de São Paulo
+            zoom: 12,  // Nível de zoom inicial
+        });
+
+        // Adiciona um marcador no mapa
+        var marker = new google.maps.Marker({
+            position: { lat: -23.5505, lng: -46.6333 }, // Mesmas coordenadas
+            map: map,
+            title: "Localização do nosso atendimento"
+        });
+    }
+</script>

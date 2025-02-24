@@ -10,18 +10,19 @@ Rails.application.routes.draw do
     member do
       post 'add_presence'
     end
+    collection do
+      post 'send_contact'
+    end
   end
 
-  # Outras rotas (sem duplicação de resources :galeries)
+  # Outras rotas (sem duplicação de resources :giras)
   get "up" => "rails/health#show", as: :rails_health_check
   get 'search' => "giras#search", as: :search
   get 'about_us', to: "giras#about_us", as: :about_us
   get 'locations', to: "giras#locations", as: :locations
-  get 'contacts', to: "giras#contacts", as: :contacts
+  get 'contact', to: "giras#contact", as: :contact
   post 'change_device' => "giras#change_device", as: :change_device
   get 'galery_photos/form', to: 'galery_photos#form'
-
-  # config/routes.rb
 
   root "giras#index"
 end

@@ -35,6 +35,19 @@ class GirasController < ApplicationController
   def about_us
   end
 
+  def send_contact
+    @name = params[:name]
+    @email = params[:email]
+    @subject = params[:subject]
+    @text = params[:message]
+
+    if PresencaMailer.contact_us(@name, @email, @subject, @text).deliver_later
+      redirect_to contact_path, notice: 'Contato enviado com sucesso!'
+    else
+      redirect_to contact_path, alert: 'Não foi possível enviar o contato!'
+    end
+  end
+
   def contact
   end
 
