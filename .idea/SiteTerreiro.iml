@@ -391,6 +391,11 @@
               <RakeTaskImpl description="" fullCommand="active_storage:update" id="update" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl id="admin">
+            <subtasks>
+              <RakeTaskImpl description="Cria um usuário administrador" fullCommand="admin:create" id="create" />
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl id="app">
             <subtasks>
               <RakeTaskImpl description="Apply the template supplied by LOCATION=(/path/to/template) or URL" fullCommand="app:template" id="template" />

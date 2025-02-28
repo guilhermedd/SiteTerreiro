@@ -1,6 +1,6 @@
 class GirasController < ApplicationController
   include GirasHelper
-  skip_before_action :authenticate_user!, only: [:index, :show, :add_presence]
+  skip_before_action :authenticate_user!, only: [:index, :show, :add_presence, :about_us, :send_contact, :contact]
   before_action :set_gira, only: %i[ show edit update destroy ]
   def index
     @giras = Gira.all

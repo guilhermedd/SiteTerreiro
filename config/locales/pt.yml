@@ -12,3 +12,5 @@ pt:
       signed_out: 'Você foi desconectado com sucesso!'
       signed_in: 'Bem-vindo de volta!'
       signed_up: "Cadastro realizado com sucesso!"
+    failure:
+      already_authenticated: "Você já está autenticado."

@@ -8,6 +8,8 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  # Defina o remetente padrão (e-mail de envio) para o ActionMailer
+  config.action_mailer.default_options = { from: 'example@trial-3zxk54vekx6ljy6v.mlsender.net' }
 
   config.active_storage.service = :amazon
 
@@ -63,14 +65,15 @@ Rails.application.configure do
   #
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'gmail.com',
-    user_name: 'EmailParaJojosOnline@gmail.com',
-    password: ENV['EMAIL_PASSWORD'],  # Agora usando a senha de app
-    authentication: 'plain',
-    enable_starttls_auto: true
+    address: 'smtp.mailersend.net',
+    port: ENV['SMTP_PORT'],
+    domain: ENV['SMTP_DOMAIN'],  # Usando a variável de ambiente
+    user_name: ENV['SMTP_USERNAME'],  # Usando a variável de ambiente
+    password: ENV['SMTP_PASSWORD'],  # Usando a variável de ambiente
+    authentication: 'plain',  # Usualmente 'plain' para a maioria dos SMTPs
+    enable_starttls_auto: true  # Para garantir uma conexão segura
   }
+
 
   # Para permitir que os e-mails sejam enviados sem erros em desenvolvimento:
   config.action_mailer.perform_deliveries = true
