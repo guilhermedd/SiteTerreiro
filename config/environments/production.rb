@@ -15,6 +15,7 @@ Rails.application.configure do
   # Enable server timing.
   config.server_timing = true
 
+
   # Enable/disable Action Controller caching.
   config.action_controller.perform_caching = true
 
@@ -44,7 +45,7 @@ Rails.application.configure do
     enable_starttls_auto: true  # Para garantir uma conexão segura
   }
 
-  config.assets.compile = false
+  config.assets.compile = true
   config.assets.digest = true
   config.assets.version = '1.0'
 

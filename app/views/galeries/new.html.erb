@@ -1,0 +1,11 @@
+<% content_for :title, "nova galeria" %>
+
+<div class="container d-flex justify-content-center py-5">
+  <div class="w-50 w-50 border p-4 rounded shadow">
+    <h1 class="d-flex justify-content-center display-4 fw-bold">Nova galeria</h1>
+
+    <div class="row g-3 d-flex flex-column align-items-center">
+      <%= render "form", galery: @galery %>
+    </div>
+  </div>
+</div>

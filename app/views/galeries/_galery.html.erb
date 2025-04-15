@@ -1,0 +1,49 @@
+<div class="col-6 p-3">
+  <div class="card">
+    <div id="carouselExampleIndicators_<%= galery.id %>" class="carousel  slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <% galery.images.each_with_index do |image, index| %>
+          <button type="button" data-bs-target="#carouselExampleIndicators_<%= galery.id %>" data-bs-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>" aria-current="<%= 'true' if index == 0 %>" aria-label="Slide <%= index + 1 %>"></button>
+        <% end %>
+      </div>
+
+      <div class="carousel-inner">
+        <% galery.images.each_with_index do |image, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <div class="placeholder-container" style="padding-top: 65; max-height: 600px;%"> <!-- 3:2 ratio -->
+              <div class="placeholder w-100 h-100 placeholder-wave position-absolute top-0 start-0 bg-secondary"></div>
+            </div>
+            <%= image_tag image.variant(resize_to_limit: [600, 400]).processed,
+                          class: "d-block mx-auto img-fluid custom-img",
+                          onload: "this.previousElementSibling.remove()",
+                          onclick: "openGalleryModal(#{galery.id}, #{galery.images.map { |img| "'#{url_for(img)}'" }.join(', ')})" %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Botão de "Voltar" com o símbolo "<" -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators_<%= galery.id %>" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="font-size: 50px;">&lt;</span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+
+      <!-- Botão de "Avançar" com o símbolo ">" -->
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators_<%= galery.id %>" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="font-size: 50px;">&gt;</span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+    </div>
+    <div class="card-body">
+      <% if user_signed_in? %>
+        <h2>
+          <strong>
+            <%= link_to galery.title, edit_galery_path(galery), class: "d-flex justify-content-center card-title" %>
+          </strong>
+        </h2>
+      <% else %>
+        <h2 class="d-flex justify-content-center card-title"><strong><%= galery.title %></strong></h2>
+      <% end %>
+    </div>
+
+  </div>
+</div>

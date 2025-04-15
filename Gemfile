@@ -7,7 +7,6 @@ gem 'pg'  # PostgreSQL
 
 gem "image_processing"
 
-
 gem 'devise'
 
 gem 'mailersend-ruby'
@@ -16,12 +15,12 @@ gem "bootstrap", "~> 5.3.3"
 
 gem 'aws-sdk-s3'
 
-gem "dartsass-sprockets"
+gem 'sassc-rails'
 
 gem 'rails-i18n'
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem "propshaft"
+gem 'propshaft', '~> 1.1'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]

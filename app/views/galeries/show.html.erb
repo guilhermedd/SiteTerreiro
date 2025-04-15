@@ -1,0 +1,71 @@
+<div class="container d-flex justify-content-center">
+  <%= render @galery %>
+
+  <div class="col-2">
+    <div class="row-3 pt-3">
+      <%= link_to "Editar galeria", edit_galery_path(@galery), class: "btn btn-warning"%>
+    </div>
+    <div class="row pt-3">
+      <%= button_to "Deletar galeria", @galery, method: :delete, class: "btn btn-danger" %>
+    </div>
+    </div>
+</div>
+
+<style>
+    /* Garante que as imagens tenham o mesmo tamanho e não distorçam */
+    .carousel-item img {
+        width: 100%;
+        height: 400px; /* Ajuste a altura como desejar */
+        object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    }
+
+    /* Estilos para os controles de navegação */
+    .carousel-control-prev, .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+        transform: translateY(-50%);
+        font-size: 30px;
+    }
+
+    .carousel-control-prev {
+        left: 0;
+    }
+
+    .carousel-control-next {
+        right: 0;
+    }
+
+    /* Cor dos botões de navegação */
+    .carousel-control-prev span, .carousel-control-next span {
+        color: #d9cbcb; /* Garantir que a cor seja preta */
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 550px; /* Ajuste conforme desejar */
+    }
+
+    .card-body {
+        flex-grow: 1; /* Faz o conteúdo expandir proporcionalmente */
+    }
+
+    .carousel-item img {
+        height: 30lvmax; /* Ajuste para um tamanho maior */
+        object-fit: cover;
+    }
+
+    /* Adicione no CSS */
+    .placeholder-container {
+        background-color: #f8f9fa; /* Cor de fundo opcional */
+    }
+
+    .custom-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Mantém a proporção da imagem */
+    }
+
+</style>

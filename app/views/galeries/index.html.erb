@@ -1,0 +1,92 @@
+<div class="container">
+  <% content_for :title, "Galeries" %>
+
+  <h1 class="text-center mb-4 pt-5 display-4 fw-bold">Galerias</h1>
+
+  <div id="galeries" class="row row-cols-1 row-cols-md-2 g-2">
+    <% @galeries.each do |galery| %>
+      <%= render "galery", galery: galery %>
+
+      <% if @galeries.empty? %>
+        <div class="card" aria-hidden="true">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+            <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if is_admin? %>
+    <div class="mt-4 text-center py-5">
+      <%= link_to "Nova Galeria", new_galery_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+
+</div>
+
+<style>
+    /* Garante que as imagens tenham o mesmo tamanho e não distorçam */
+    .carousel-item img {
+        width: 100%;
+        height: 30lvmax; /* Ajuste a altura como desejar */
+        object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    }
+
+    /* Estilos para os controles de navegação */
+    .carousel-control-prev, .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+        transform: translateY(-50%);
+        font-size: 30px;
+    }
+
+    .carousel-control-prev {
+        left: 0;
+    }
+
+    .carousel-control-next {
+        right: 0;
+    }
+
+    /* Cor dos botões de navegação */
+    .carousel-control-prev span, .carousel-control-next span {
+        color: #000000; /* Garantir que a cor seja preta */
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 550px; /* Ajuste conforme desejar */
+    }
+
+    .card-body {
+        flex-grow: 1; /* Faz o conteúdo expandir proporcionalmente */
+    }
+
+    /* Adicione no CSS */
+    .placeholder-container {
+        background-color: #f8f9fa; /* Cor de fundo opcional */
+    }
+
+    .custom-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Mantém a proporção da imagem */
+    }
+
+</style>

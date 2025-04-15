@@ -1,0 +1,21 @@
+<% content_for :title, "Editing galery" %>
+
+<div class="container d-flex justify-content-center py-5">
+  <div class="w-50 w-50 border p-4 rounded shadow">
+    <h1 class="text-center display-4 fw-bold">Editar <strong>"<%= @galery.title %>"</strong></h1>
+
+    <div class="row g-3 d-flex flex-column align-items-center">
+      <%= render "form", galery: @galery %>
+    </div>
+    <%= button_to "Deletar galeria", @galery, method: :delete, class: "btn btn-danger btn-lg mt-2" %>
+
+  </div>
+
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Back to galeries", galeries_path %>
+</div>
+
