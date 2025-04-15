@@ -27,7 +27,6 @@
           </h2>
         </div>
       </div>
-
       <div class="calendar-container">
         <%= month_calendar events: @giras do |date, events| %>
           <% if date.month == (params[:start_date] ? Date.parse(params[:start_date]).month : Date.today.month) %>
@@ -35,14 +34,14 @@
               <strong style="display: inline-flex;
                 justify-content: center;
                 align-items: center;
-                width: 40px; /* Largura fixa */
-                height: 40px; /* Altura fixa */
+                width: 40px;
+                height: 40px; 
                 background-color: white;
                 color: black;
-                border: 3px solid red; /* Borda vermelha */
-                border-radius: 50%; /* Torna a borda redonda */
-                font-size: 16px; /* Ajuste do tamanho da fonte */
-                text-align: center; /* Centraliza o texto horizontalmente */
+                border: 3px solid red;
+                border-radius: 50%;
+                font-size: 16px; 
+                text-align: center;
               ">
                 <%= date.day %>
               </strong>
@@ -62,8 +61,6 @@
                                end %>
               <div class="event <%= event_class %>">
                 <strong><%= link_to event.name, gira_path(event) %></strong>
-
-                <%#= link_to 'Ver detalhes', gira_path(event) %>
               </div>
             <% end %>
           <% end %>

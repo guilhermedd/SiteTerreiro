@@ -1,0 +1,279 @@
+/*
+ *= require simple_calendar
+ *= require_tree .
+ *= require_self
+*/
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.content {
+    flex: 1; 
+}
+
+footer {
+    margin-top: auto;
+    color: #0d3c25;
+    background-color: #570c13;
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    color: inherit; 
+    display: flex; 
+    align-items: center; 
+    transition: transform 0.3s ease-in-out; 
+}
+
+a:hover {
+    color: inherit; 
+    transform: scale(1.05); 
+}
+
+a h2 {
+    margin-right: 8px;
+    transition: none; 
+}
+
+.navbar-brand img {
+    max-width: 100px; 
+    height: auto;
+}
+
+i {
+    margin-left: 8px; 
+    transition: transform 0.3s ease-in-out; 
+}
+
+a:hover i {
+    transform: scale(1.2); 
+}
+
+.collapse.show + .collapsed i {
+    transform: rotate(180deg); 
+}
+
+.simple-calendar {
+    width: 100%;
+    border-spacing: 0;
+}
+
+nav.simple-calendar {
+    display: none;
+}
+
+.simple-calendar .next-month {
+    visibility: hidden;
+}
+
+.simple-calendar th, .simple-calendar td {
+    border: 1px solid #ddd;
+
+    padding: 8px;
+    text-align: left;
+    vertical-align: top; 
+    width: 14.28%; 
+    position: relative; 
+}
+
+.simple-calendar th {
+    background-color: #f4f4f4;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.simple-calendar .day {
+    height: 120px;
+    position: initial;
+}
+
+.simple-calendar .event {
+    background-color: #e9ecef;
+    padding: 4px;
+    margin: 2px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: transform 0.3s ease-in-out;
+}
+
+.event.event-open {
+    background-color: #a3d6b3; 
+    color: #0d3c25;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.event.event-closed {
+    background-color: #e09a9f; 
+    color: #570c13;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.event.event-development {
+    background-color: #f3d78e; 
+    color: #7a5a12; 
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.event.event-other {
+    background-color: #a8d1f3; 
+    color: #124a7a; 
+    padding: 5px;
+    border-radius: 4px;
+}
+
+
+.simple-calendar .event strong {
+    display: block; 
+    font-size: 13px;
+}
+
+.simple-calendar .event:hover {
+    transform: scale(1.2); 
+    font-size: 11px;
+    color: #555;
+}
+
+.simple-calendar .calendar-heading {
+    display: none;
+}
+
+.calendar-header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.calendar-navigation {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.calendar-navigation a {
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.calendar-navigation a:hover {
+    transform: scale(1.2);
+}
+
+.bordered-row {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 10px; 
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.18); 
+}
+
+.simple-calendar td::before {
+    content: attr(data-day); 
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%); 
+    font-weight: bold;
+    font-size: 14px;
+    color: #333; 
+}
+
+.calendar-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.calendar-legend {
+    margin-left: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.legend-open {
+    background-color: green;
+}
+
+.legend-closed {
+    background-color: red;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+#galleryModal .modal-body img {
+    max-width: 100%;   
+    max-height: 80vh;  
+    width: auto;      
+    height: auto;
+    object-fit: contain;  
+    display: block;
+    margin: 0 auto;   
+}
+
+#modalCarousel .carousel-control-prev,
+#modalCarousel .carousel-control-next {
+    opacity: 100; 
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;  
+}
+
+#modalCarousel .carousel-control-prev:hover,
+#modalCarousel .carousel-control-next:hover {
+    opacity: 1;  
+}
+
+.teste {
+    transition: transform 0.3s ease-in-out; 
+}
+
+.teste:hover {
+    transform: scale(1.5); 
+}
+

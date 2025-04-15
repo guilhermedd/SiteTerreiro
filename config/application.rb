@@ -1,7 +1,7 @@
 require_relative "boot"
 
 require "rails"
-require "active_storage/engine" # Keep only one uncommented line for ActiveStorage
+require "active_storage/engine" # Keep only if you're using ActiveStorage
 
 # Pick the frameworks you want:
 require "active_model/railtie"
@@ -19,19 +19,23 @@ module SiteTerreiro
   class Application < Rails::Application
     # Keep existing configurations
     config.time_zone = 'Brasilia'
+    config.assets.css_compressor = :sass
+
     config.i18n.available_locales = [:en, :pt]
     config.i18n.default_locale = :pt
 
-    # Propshaft configuration
-    config.assets.prefix = "/assets"
-    config.assets.paths = [
-      Rails.root.join("app/assets").to_s # Convert Pathname to string explicitly
+    # Explicitly set asset paths
+    config.assets.paths += [
+      Rails.root.join("app", "assets", "images"),
+      Rails.root.join("app", "assets", "javascripts"),
+      Rails.root.join("app", "assets", "stylesheets")
     ]
-    config.assets.resolve_urls = true
+    config.assets.enabled = true
 
 
+    # Let Propshaft handle the asset paths automatically
     config.load_defaults 8.0
     config.autoload_lib(ignore: %w[assets tasks])
-
   end
 end
+
