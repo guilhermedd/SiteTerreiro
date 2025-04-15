@@ -69,12 +69,20 @@ Before running the project, you need to configure some environment variables in 
     - Run the following command to execute the migrations:
     
     ```bash
-    rake db:migrate
+    rails db:migrate
     ```
 
     - This will apply all the migration files located in the `db/migrate` directory, setting up the required tables for your project to work.
+  
+4. **Creating admin**:
+   - After running the migration, you can populate the users with an all mighty admin.
+   - Run the following command to execute the migrations:
+    
+    ```bash
+    rails admin:create
+    ```  
 
-4. **Start the Rails Server**:
+6. **Start the Rails Server**:
     - Once the database is set up and migrations are run, you can start the Rails development server with:
     
     ```bash
