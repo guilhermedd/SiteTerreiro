@@ -21,7 +21,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   config.cache_store = :memory_store
-  config.active_storage.service = :amazon
+  config.active_storage.service = :local
 
 
   # Don't care if the mailer can't send.

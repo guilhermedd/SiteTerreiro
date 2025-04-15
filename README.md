@@ -39,9 +39,6 @@ Before running the project, you need to configure some environment variables in 
 - **SMTP_PASSWORD**: The password used for authentication on the SMTP server.
 - **SMTP_DOMAIN**: The domain of the SMTP server.
 
-#### Security and Sessions
-- **SECRET_KEY_BASE**: The secret key used for signing cookies and securing sessions. This key must be unique and never shared publicly.
-
 ---
 
 ### 💡 How to Use
@@ -50,6 +47,12 @@ Before running the project, you need to configure some environment variables in 
     - Create a `.env` file at the root of your project.
     - Add the environment variables with their respective values as described above.
     - Ensure that the database credentials (e.g., `DB_PASSWORD`) and other sensitive information are kept secure and never shared publicly.
+    - The mandatory environment variables are:
+    - `DB_PASSWORD`
+    - `ADMIN_EMAIL`
+    - `ADMIN_PASSWORD`
+
+    - The other variables are optional and can be used if needed. For example, for sending emails, you can set up SMTP configuration variables. For AWS S3 storage, you can set up the AWS credentials.
 
 2. **Create the Database**:
     - Before running the project, you need to create a PostgreSQL database. Make sure you have PostgreSQL installed and running.

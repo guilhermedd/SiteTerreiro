@@ -1,8 +1,3 @@
-//= require_tree .
-import "@hotwired/turbo-rails"
-import "./controllers"
-import * as bootstrap from "bootstrap"
-
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById('pessoas-container');
 

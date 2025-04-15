@@ -16,11 +16,11 @@ class GirasController < ApplicationController
     end
 
     if @presenca.save
+      
       PresencaMailer.send_welcome_email(@presenca, @gira).deliver_later
       redirect_to @gira, notice: 'Presença adicionada com sucesso!'
     else
-      flash.now[:alert] = @presenca.errors.full_messages.to_sentence
-      render :show
+      redirect_to @gira, alert: 'Esse email já marcou presença!'
     end
   end
 

@@ -7,7 +7,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.enable_reloading = true
   config.eager_load = false
-  config.active_storage.service = :amazon
+  config.active_storage.service = :local
 
   # Action Mailer Configuration
   config.action_mailer.default_options = { from: 'example@trial-3zxk54vekx6ljy6v.mlsender.net' }
