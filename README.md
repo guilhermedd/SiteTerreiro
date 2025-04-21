@@ -99,3 +99,11 @@ By following these steps, you will have your development environment set up, inc
 ---
 
 By providing this explanation, any developer or collaborator will quickly understand what each environment variable does and how to configure them correctly.
+
+
+---
+
+# TODO:
+ - Fix precompile bug (change .css file to application)
+ - Create Tests
+ - Rename classes, files, etc. (Overall code organization)
