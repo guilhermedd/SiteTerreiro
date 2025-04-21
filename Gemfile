@@ -15,12 +15,16 @@ gem "bootstrap", "~> 5.3.3"
 
 gem 'aws-sdk-s3'
 
-gem 'sassc-rails'
 
 gem 'rails-i18n'
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem 'propshaft', '~> 1.1'
+gem "propshaft"
+gem "jsbundling-rails"
+gem "cssbundling-rails"
+gem "sass-embedded"
+
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -39,7 +43,6 @@ gem 'rest-client'
 gem 'dotenv-rails'
 
 gem "simple_calendar"
-
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]

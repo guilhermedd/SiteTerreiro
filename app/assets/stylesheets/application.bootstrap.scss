@@ -1,9 +1,5 @@
-/*
- *= require simple_calendar
- *= require_tree .
- *= require_self
-*/
-
+@use 'bootstrap/scss/bootstrap';
+@use 'bootstrap-icons/font/bootstrap-icons';
 
 html, body {
     height: 100%;
@@ -276,4 +272,3 @@ nav.simple-calendar {
 .teste:hover {
     transform: scale(1.5); 
 }
-

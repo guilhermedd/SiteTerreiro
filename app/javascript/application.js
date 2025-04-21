@@ -6,3 +6,4 @@ const application = Application.start()
 
 // Registra os controladores do Stimulus
 application.register("image_fields", ImageFieldsController)
+import * as bootstrap from "bootstrap"
