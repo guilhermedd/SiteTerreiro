@@ -104,6 +104,5 @@ By providing this explanation, any developer or collaborator will quickly unders
 ---
 
 # TODO:
- - Fix precompile bug (change .css file to application)
  - Create Tests
  - Rename classes, files, etc. (Overall code organization)
