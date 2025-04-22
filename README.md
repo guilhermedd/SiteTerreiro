@@ -1,8 +1,8 @@
 # README
-This is a web project built with Ruby on Rails. This README contains information on how to set up the development environment, how to run the project, and a description of the required environment variables.
 
-This site is going to be used in the religious umbanda community of "Tenda de Umbanda Ogum Yara".
-It's a project made to replace the current site, which does not have a good design, is difficult to use and does not have all the necessary features. 
+This is a web project developed with Ruby on Rails. This README contains information on how to set up the development environment, how to run the project, and a description of the required environment variables.
+
+This website will be used by the religious Umbanda community "Tenda de Umbanda Ogum Yara." It is a project created to replace the current website, which has poor design, is difficult to use, and lacks all the necessary features.
 
 # Setup
 
@@ -17,9 +17,9 @@ Before running the project, you need to configure some environment variables in 
   - Example: `DB_PASSWORD=123`
 
 #### API Keys
-- **MAILERSEND_API_KEY**: The API key for the **Mailersend** email service. This is required for configuring email sending in the system.
+- **MAILERSEND_API_KEY**: The API key for the **Mailersend** email service. This is required to configure email sending in the system.
 - **APIDECK_KEY**: The API key for integrating with the **Apideck** API.
-- **APIDECK_ID**: The identifier of your **Apideck** account.
+- **APIDECK_ID**: The identifier for your **Apideck** account.
 
 #### AWS Configuration Variables
 - **AWS_ACCESS_KEY_ID**: The access key for AWS authentication.
@@ -46,13 +46,13 @@ Before running the project, you need to configure some environment variables in 
 1. **Set Up Environment Variables**:
     - Create a `.env` file at the root of your project.
     - Add the environment variables with their respective values as described above.
-    - Ensure that the database credentials (e.g., `DB_PASSWORD`) and other sensitive information are kept secure and never shared publicly.
+    - Ensure that database credentials (e.g., `DB_PASSWORD`) and other sensitive information are kept secure and never shared publicly.
     - The mandatory environment variables are:
-    - `DB_PASSWORD`
-    - `ADMIN_EMAIL`
-    - `ADMIN_PASSWORD`
+        - `DB_PASSWORD`
+        - `ADMIN_EMAIL`
+        - `ADMIN_PASSWORD`
 
-    - The other variables are optional and can be used if needed. For example, for sending emails, you can set up SMTP configuration variables. For AWS S3 storage, you can set up the AWS credentials.
+    - The other variables are optional and can be used if needed. For example, for email sending, you can set up SMTP configuration variables. For AWS S3 storage, you can set up the AWS credentials.
 
 2. **Create the Database**:
     - Before running the project, you need to create a PostgreSQL database. Make sure you have PostgreSQL installed and running.
@@ -72,17 +72,17 @@ Before running the project, you need to configure some environment variables in 
     rails db:migrate
     ```
 
-    - This will apply all the migration files located in the `db/migrate` directory, setting up the required tables for your project to work.
-  
-4. **Creating admin**:
-   - After running the migration, you can populate the users with an all mighty admin.
-   - Run the following command to execute the migrations:
+    - This will apply all migration files located in the `db/migrate` directory, setting up the required tables for your project to work.
+
+4. **Create Admin**:
+   - After running the migration, you can populate the users with a powerful admin.
+   - Run the following command to create the admin user:
     
     ```bash
-    rails admin:create
-    ```  
+    rake admin:create
+    ```
 
-6. **Start the Rails Server**:
+5. **Start the Rails Server**:
     - Once the database is set up and migrations are run, you can start the Rails development server with:
     
     ```bash
@@ -95,11 +95,9 @@ Before running the project, you need to configure some environment variables in 
 
 By following these steps, you will have your development environment set up, including the database and migrations, and the application will be ready to run.
 
-
 ---
 
 By providing this explanation, any developer or collaborator will quickly understand what each environment variable does and how to configure them correctly.
-
 
 ---
 
