@@ -40,7 +40,7 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 gem 'rest-client'
-gem 'dotenv-rails'
+gem 'dotenv-rails', groups: [:development, :test, :production]
 
 gem "simple_calendar"
 

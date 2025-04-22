@@ -15,7 +15,7 @@ test:
   database: terreiro_umbanda_test
 
 production:
-  <<: *default
-  database: terreiro_umbanda_production
-  username: guidd
-  password: <%= ENV['DB_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  url: <%= ENV['DATABASE_URL'] %>
