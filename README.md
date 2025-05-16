@@ -49,6 +49,8 @@ Before running the project, you need to configure some environment variables in 
     - Ensure that database credentials (e.g., `DB_PASSWORD`) and other sensitive information are kept secure and never shared publicly.
     - The mandatory environment variables are:
         - `DB_PASSWORD`
+        - `DB_NAME`
+        - `DB_USERNAME`
         - `ADMIN_EMAIL`
         - `ADMIN_PASSWORD`
 
