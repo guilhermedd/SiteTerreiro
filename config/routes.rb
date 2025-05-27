@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   resources :galeries do
     member do
       delete 'detach_image'

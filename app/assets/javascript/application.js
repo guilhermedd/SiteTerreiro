@@ -1,35 +1,30 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbo:load', function () {
     const container = document.getElementById('pessoas-container');
 
-    // Adiciona evento de clique ao botão para adicionar campos
-    container.addEventListener('click', function(event) {
-        if (event.target && event.target.id === 'meuBotao') {
-            // Cria uma nova div que irá conter tanto o input quanto o botão de delete
-            const novaDiv = document.createElement('div');
-            novaDiv.classList.add('d-flex', 'align-items-center', 'mt-2'); // Flexbox para alinhar o campo de imagem e o botão de delete
+    if (!container) return;
 
-            // Cria o input file para imagens
+    container.addEventListener('click', function (event) {
+        if (event.target && event.target.id === 'meuBotao') {
+            const novaDiv = document.createElement('div');
+            novaDiv.classList.add('d-flex', 'align-items-center', 'mt-2');
+
             const inputFile = document.createElement('input');
             inputFile.type = 'file';
             inputFile.name = 'galery[images][]';
-            inputFile.classList.add('form-control', 'me-2'); // Margem à direita para separar o botão
+            inputFile.classList.add('form-control', 'me-2');
 
-            // Cria o botão de delete
             const deleteButton = document.createElement('button');
             deleteButton.type = 'button';
             deleteButton.classList.add('btn', 'btn-danger');
             deleteButton.textContent = 'Excluir';
 
-            // Adiciona o evento de clique no botão de excluir
-            deleteButton.addEventListener('click', function() {
-                novaDiv.remove(); // Remove a div que contém o input e o botão
+            deleteButton.addEventListener('click', function () {
+                novaDiv.remove();
             });
 
-            // Adiciona o input e o botão de delete à nova div
             novaDiv.appendChild(inputFile);
             novaDiv.appendChild(deleteButton);
 
-            // Adiciona a nova div ao container de fotos
             const newPhotoContainer = document.getElementById('new_photos');
             if (newPhotoContainer) {
                 newPhotoContainer.appendChild(novaDiv);
@@ -39,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
 
 function openGalleryModal(galeryId, ...imageUrls) {
     let modal = document.getElementById("galleryModal");
@@ -113,7 +109,7 @@ function openGalleryModal(galeryId, ...imageUrls) {
     modalInstance.show();
 }
 
-document.getElementById('file-upload').addEventListener('change', function(event) {
+document.getElementById('file-upload').addEventListener('change', function (event) {
     const files = event.target.files;
     const previewContainer = document.getElementById('image-previews');
 
@@ -122,7 +118,7 @@ document.getElementById('file-upload').addEventListener('change', function(event
     Array.from(files).forEach(file => {
         const reader = new FileReader();
 
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             const imgElement = document.createElement('img');
             imgElement.src = e.target.result;
             imgElement.style.width = '100px';  // Defina o tamanho da miniatura
@@ -133,18 +129,3 @@ document.getElementById('file-upload').addEventListener('change', function(event
         reader.readAsDataURL(file);
     });
 });
-
-function initMap() {
-    // Cria um novo mapa centrado em uma latitude e longitude específicas
-    var map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -23.5505, lng: -46.6333 }, // Exemplo: coordenadas de São Paulo
-        zoom: 12,  // Nível de zoom inicial
-    });
-
-    // Adiciona um marcador no mapa
-    var marker = new google.maps.Marker({
-        position: { lat: -23.5505, lng: -46.6333 }, // Mesmas coordenadas
-        map: map,
-        title: "Localização do nosso atendimento"
-    });
-}
