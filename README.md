@@ -106,6 +106,5 @@ By providing this explanation, any developer or collaborator will quickly unders
 # TODO:
  - Create Tests
  - Rename classes, files, etc. (Overall code organization)
- - Translate config/locales/devise to portuguese
  - Mudar de Gira para Eventos
  - Embelezar tudo.
